@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+  width:6px;
+}
+body{
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar-track {
+  background:rgb(255, 112, 196);
+}
+body::-webkit-scrollbar-thumb {
+  background:rgba(73, 167, 243, 0.973);
+}
+.charsMain::-webkit-scrollbar {
+  width:6px;
+}
+
+.chars::-webkit-scrollbar {
+  width:4px;
+}
+
+/*track*/
+.chars::-webkit-scrollbar-track {
+  background:rgba(255, 255, 255, 0);
+}
+
+/*thumb*/
+.chars::-webkit-scrollbar-thumb {
+  background:rgb(168, 255, 240);
+
+  border-radius:10px;
+}
+.lobby_info {
+  /* background-image: url("../public/eulanamecard.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.setbg {
+  background-color: #f5f3ed;
+}
+.party_main{
+  background-image: url("../public/bg.jpg");
+}
+.desc{
+  /* width: 70%;
+  height: 98vh; */
+  /* position: relative; */
+  overflow: hidden;
+}
+.desc::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(59, 150, 236);
+  border-radius: 50% 50% 0px 0px;
+  transform: scaleX(3);
+  
+}
+.name-main{
+  width: 400px;
+  height:300px ;
+  background-color: rgba(48, 47, 47, 0.877);
+  position: relative;
+}
+.mobile-chars{
+  display: none;
+}
+.marcellus{
+  font-family: var(--font-marcellus);
+}
+.crimson{
+  font-family: var(--font-crimson);
+}
+.kanit{
+  font-family: var(--font-kanit);
+  font-weight: 600;
+}
+.slidermain{
+ 
+  background: rgb(173,14,14);
+  background: linear-gradient(180deg, rgba(173,14,14,1) 0%, rgba(140,11,11,1) 48%, rgba(0,0,0,1) 100%);
+}
+@media only screen and (max-width:500px){
+.slotcard{
+  width: 80px;
+  height: 130px;
+  margin:4px
+}
+}
+@media only screen and (max-width:950px){
+  .dice{
+    margin-left: 10px;
+  }
+  .slots {
+    width: 65% ;
+  }
+  .chars{
+    width: 65% ;
+  }
+  .boss-main{
+    width: 25%;
+  }
+}
+@media only screen and (max-width:768px){
+  .main{
+    flex-direction: column;
+   height: max-content;
+   padding: 10px;
+  }
+
+  .main-right{
+    width: 100%;
+  }
+  .lobby-main{
+    border: 1px solid rgb(169, 168, 168);
+    border-radius: 10px;
+    width: 100%;
+    height: 100vh;
+
+  }
+  .blog{
+    width: 100vw;
+  }
+  .create-lobby{
+    display: none;
+  }
+  .charsMain{
+ 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 0px 10px;
+  }
+  .chars{
+  display: none;
+  margin: 0px 10px;
+  }
+  .slots{
+    width: 100%;
+    position: static;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    padding: 20px 0px;
+  }
+  .mobile-chars{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 0px 0px;
+    overflow-x: hidden;
+  }
+  .slidermain{
+    margin: 0px 5px;
+    height: 180px;
+
+  }
+  .slidert{
+    font-size: 10px;
+    line-height: 10px;
+    margin-top: 1px;
+  }
+  .sliderimg{
+    height: 140px;
+  }
+  .sliderCont{
+    margin-top: 5px;
+  }
+}
+.lobbyDetails{
+
+}
+.lobby-main{
+
+}
+.slots{
+  background: rgb(60,5,5);
+background: linear-gradient(180deg, rgba(60,5,5,1) 0%, rgba(0,0,0,1) 100%);
+}
+.boosbg{
+  background: rgb(169,0,0);
+  background: linear-gradient(180deg, rgba(169,0,0,1) 1%, rgba(0,0,0,1) 67%);
+}
+.lds-ring {
+  /* change color here */
+  color: #00bfff
+}
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: flex;
+  justify-content: center;
+  position:absolute;
+  bottom: 0px;
+  width: 80px;
+  height: 50px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 1px;
+  border: 6px solid currentColor;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@layer utilities{
+  .btn-primary{
+    @apply w-max z-10 bg-orange-100 px-4 py-1 rounded-full
+  }
+  .main{
+    @apply bg-[url("../public/giwp2.png")] bg-cover bg-no-repeat  w-screen
+   
+   
+  }
+  .lobby-main{
+    @apply backdrop-blur-lg bg-transparent   border-orange-600 rounded-md border-2 overflow-hidden
+  }
+  .create-lobby{
+    @apply backdrop-blur-lg bg-slate-500 bg-opacity-40  w-[95%] h-1/2 border-2 border-orange-600 overflow-hidden bottom-2 rounded-md flex flex-col justify-between items-center
+  }
+  .input-lobby{
+    @apply h-12 w-[90%] bg-slate-900 bg-opacity-70 border-gray-400 rounded-md border-2  font-medium text-lg outline-none px-4 py-1 mt-4 text-orange-100
+  }
+  .input-lobby::-webkit-input-placeholder{
+    @apply text-gray-200
+  }
+  .btn-lobby{
+    @apply w-[90%] h-12 bg-black rounded-md my-2 text-orange-100 font-semibold text-lg mt-6
+  }
+  .top_bar{
+    @apply bg-slate-900 bg-opacity-95   backdrop-blur-sm w-full h-12 flex items-center px-4  border-b-2 border-slate-200
+  }
+  .name-main{
+    @apply border-4   border-spacing-8 border-yellow-700 rounded-md
+  }
+  .blog{
+    @apply backdrop-blur-lg bg-transparent bg-opacity-20   w-[95%] h-[45%] mt-4 border-2 border-orange-600 overflow-hidden flex flex-col items-center rounded-md
+  }
+  .charsMain{
+    @apply    bg-[url("../public/abyss23.png")]
+  }
+  .mobile-chars{
+    @apply    bg-[url("../public/abyss23.png")]
+  }
+}
