@@ -194,8 +194,9 @@ if(name===null){
   return (
     <main className="marcellus flex h-screen justify-between  w-screen main">
       <div className=" w-[30%] flex flex-col items-center bg-slate-400 h-full lobby-main ">
-      <div className=" top_bar">
+      <div className=" top_bar justify-between">
             <h4 className="text-[#e6cda1] font-medium">Lobbies</h4>
+            <button onClick={()=>setopenlobby(true)} className=" bg-red-300 px-2 py-1 rounded-full md:hidden ">Create lobby</button>
           </div>
           {rooms?rooms.map((c,i)=> <div key={i} className="  w-[95%]   h-12 my-2 rounded-full relative overflow-hidden">
           <div
