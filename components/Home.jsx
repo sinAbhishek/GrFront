@@ -32,7 +32,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     
   
       return () => {
-        window.removeEventListener('resize', handleResize);
+        typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
       };
     }, []);
     useEffect(()=>{
