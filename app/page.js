@@ -227,7 +227,7 @@ export default function Home() {
           variants={slidervariant}
           initial={"hidden"}
           animate={slideshow && "visible"}
-          className=" w-[30%] flex flex-col items-center bg-slate-400 h-screen lobby-main absolute left-0 top-0 py-4"
+          className=" w-[30%] flex flex-col items-center bg-slate-400 h-screen lobby-main absolute left-0 top-0 py-4 z-30"
         >
           <button
             onClick={() => animateslider(sliderscope.current, { x: "-100%" })}
