@@ -38,9 +38,9 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
         typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
       };
     }, []);
-    useEffect(()=>{
-     open?peek():hide(null)
-    },[open])
+    // useEffect(()=>{
+    //  open?peek():hide(null)
+    // },[open])
     const scalevariant={
       hidden: { scale:shrink<550?1:.5 },
       visible: {
@@ -83,38 +83,38 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       console.log(isInView)
     },[isInView])
     const peek=async()=>{
+      setopen(true)
+      console.log("width")
+      leftpeek()
+      rightpeek()
       if(width<550){
         setshrink(true)
       }
-      setopen(true)
       if(width<768){
         setstest(true)
       }
    
-     
-      leftpeek()
-      rightpeek()
+    
     }
     async function leftpeek() {
       if(width<768){
         await animate(
           scope.current,
+          { rotate: -20, x:width>500?-150:-70,opacity:1,zIndex:20 },
+          { type: "spring", duration: 0.5, stiffness: 100 }
+        )
+      
+      }
+      // console.log(e);
+      else{
+        await animate(
+          scope.current,
           { rotate: -20, x:width>500?-150:-70,opacity:1 },
           { type: "spring", duration: 0.5, stiffness: 100 }
         );
-        await animate(
-          scope.current,
-          { rotate: 0, x:width>500?-150:-70,opacity:1 },
-          { type: "spring", duration: 0.5, stiffness: 100 }
-        );
+     
       }
-      // console.log(e);
-      await animate(
-        scope.current,
-        { rotate: -20, x:width>500?-150:-70,opacity:1 },
-        { type: "spring", duration: 0.5, stiffness: 100 }
-      );
-   
+ 
     
     }
     async function rightpeek() {
@@ -123,50 +123,60 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       if(width<768){
         await animatesec(
           scopesec.current,
-          { rotate: 20, x: width>500?150:70,opacity:1 },
-          { type: "spring", duration: 0.5, stiffness: 100 }
-        );
-        await animatesec(
-          scopesec.current,
-          { rotate: 0, x: width>500?150:70,opacity:1,zIndex:20 },
+          { rotate: 20, x: width>500?150:70,opacity:1,zIndex:20 },
           { type: "spring", duration: 0.5, stiffness: 100 }
         );
       }
-      await animatesec(
-        scopesec.current,
-        { rotate: 20, x: width>500?150:70,opacity:1 },
-        { type: "spring", duration: 0.5, stiffness: 100 }
-      );
+      else{
+        await animatesec(
+          scopesec.current,
+          { rotate: 20, x: width>500?150:70,opacity:1 },
+          { type: "spring", duration: 0.5, stiffness: 100 }
+        );
+     
+      }
    
     }
     async function hide(e) {
       setstest(false)
       setshrink(false)
       setopen(false)
-      console.log(e);
-      lefthide(e)
-      righthide(e)
+
+      lefthide()
+      righthide()
   
     }
-    async function lefthide(e) {
+    async function lefthide() {
       // console.log(e.target.id);
       await animate(scope.current, { rotate: 0, x: 0,opacity:0 });
      
     }
-    async function righthide(e) {
+    async function righthide() {
       // console.log(e.target.id);
    
       await animatesec(scopesec.current, { rotate: 0, x: 0,opacity:0 });
     }
     const handle = (e) => {
       console.log(e.target.id);
-      if (e.target.id === "niko") {
+      if(width<768){
+        hide(e)
+      }
+      else if (e.target.id === "niko") {
         hide(e);
       }
     };
     // const slide=()=>{
     //   await animatesec(scopesec.current, { rotate: 0, x: 0,opacity:0 });
     // }
+    const handleswitch=()=>{
+      console.log(open)
+      if(open){
+       hide()
+      }
+      else{
+        peek()
+      }
+    }
   return (
     <>
     <main
@@ -191,7 +201,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
         <img className=' w-[200px] h-[100px]' src="./grlogo.png" alt="" />
         </div> */}
        <div className="  w-full h-[70%] flex justify-center items-center">
-      <motion.button onClick={()=>setopen(!open)} whileHover={()=>peek()} className={` ${!open?"bg-cyan-200":"bg-red-400"} text-slate-700 border border-cyan-700 w-max rounded-md px-2 py-1 absolute bottom-3 `}>{!open?"Welcome":"Close"}</motion.button>
+      <motion.button onClick={()=>handleswitch()} whileHover={()=>peek()} className={` ${!open?"bg-cyan-200":"bg-red-400"} text-slate-700 border border-cyan-700 w-max rounded-md px-2 py-1 absolute bottom-3 `}>{!open?"Welcome":"Close"}</motion.button>
        </div>
     
       </div>
