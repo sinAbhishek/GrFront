@@ -17,7 +17,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     const isInView = useInView(ref,{amount:.2})
     const move1=useTransform(scrollYProgress,[0,1],["100%","-50%"])
     const move2=useTransform(scrollYProgress,[0,1],["100%","-50%"])
-    const [width, setWidth] = useState(window.innerWidth);
+    // const [width, setWidth] = useState(window.innerWidth);
     const [shrink,setshrink]=useState(false)
     const [open,setopen]=useState(false)
     // useEffect(() => {
