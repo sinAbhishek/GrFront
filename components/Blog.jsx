@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from "framer-motion";
 import { useRouter } from 'next/navigation'
 const Blog = (prop) => {
 const url=prop.blogs.image
@@ -14,13 +15,14 @@ const router=useRouter()
       }
     }}>
     
-    <div    className=" slidermain w-auto h-[250px] hover:scale-105 transition  rounded-xl overflow-hidden duration-300 hover:cursor-pointer mx-2 border border-gray-400 ">
-      <div className=" sliderimg w-full h-[200px] relative  ">
-      {url&&<Image className=' ' src={url} fill
- alt='alt' style={{borderRadius:"0 0 30px 0",borderBottom:"2px solid #fc0f23"}} />}
-      </div>
-      <div className=" flex justify-center p-1">
-        <p className=' slidert text-slate-100 text-sm'>{prop.blogs.title.length>25?`${prop.blogs.title.slice(0,25)} ...`:prop.blogs.title}</p>
+    <motion.div whileHover={{scale:1.2}} variants={prop.variantname}    className="marcellus slidermain w-[200px] h-[150px] md:w-[250px] md:h-[200px] flex flex-col justify-between  rounded-sm overflow-hidden  hover:cursor-pointer mx-2 border border-gray-400 ">
+     
+      
+      {url&&<Image className=' ' src={url} width={0} height={0} sizes='100vw'  style={{ width: '100%', height: '150px' }}
+ alt='alt'  />}
+    
+      <div className="slidert flex justify-start   p-1 w-full h-[50px]">
+        <p className='  text-slate-700 text-sm font-semibold'>{prop.blogs.title.length>25?`${prop.blogs.title.slice(0,25)} ...`:prop.blogs.title}</p>
       </div>
       {/* <div className=" m-2">
         <h4 className=' font-bold text-slate-900 text-lg'>{prop.blogs.title}</h4>
@@ -32,7 +34,7 @@ const router=useRouter()
      
       </div> */}
      
-    </div>
+    </motion.div>
     </Link>
   )
 }

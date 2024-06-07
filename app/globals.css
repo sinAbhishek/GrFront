@@ -65,6 +65,9 @@ body::-webkit-scrollbar-thumb {
   transform: scaleX(3);
   
 }
+a{
+  height: max-content;
+}
 .name-main{
   width: 400px;
   height:300px ;
@@ -84,10 +87,89 @@ body::-webkit-scrollbar-thumb {
   font-family: var(--font-kanit);
   font-weight: 600;
 }
-.slidermain{
+.slidert{
  
-  background: rgb(173,14,14);
-  background: linear-gradient(180deg, rgba(173,14,14,1) 0%, rgba(140,11,11,1) 48%, rgba(0,0,0,1) 100%);
+  /* background:transparent; */
+  
+  background: white
+}
+/* .parallax{
+  width:700px;
+  height: 500px;
+  background-size: contain;
+  background-position: center;
+  background-image: url("../public/test.jpg");
+  background-attachment: fixed;
+} */
+.paramain{
+  width: 700px;
+  height: 500px;
+}
+/* .parallax2{
+  width:100vw;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../public/test2.png");
+  background-attachment: fixed;
+} */
+/* .hill1{
+  background-image: url("../public/hill1.png");
+  background-attachment: fixed;
+  
+ 
+} */
+.bgimg{
+  background-image: url("../public/image.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position:bottom;
+}
+#niko{
+  background-image: url("../public/grbg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+.peekmain{
+  /* background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(251,198,124,1) 100%); */
+  background-image: url("../public/maingrbg.jpg");
+  background-size: cover;
+  background-position:top;
+ 
+}
+.leftPeek{
+  background-image: url("../public/cryo.jpg");
+  background-size: contain;
+}
+.rightPeek{
+  background-image: url("../public/pyrobg.jpg");
+  background-size: contain;
+}
+.sec2{
+  background-image: url("../public/arle2.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.sliderimg > div{
+position: absolute;
+left: 0; top: 0; right: 0; bottom: 0; width: 100%; height:200px;
+background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(37, 130, 148, 0.551) 100%);
+}
+.blogcont{
+  row-gap: 5px;
+  background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,0) 10%, rgb(196, 37, 5) 80%);
+/* background-image: url("../public/pyrobgblog.jpg"); */
+
+background-size: cover;
+
+background-position:center;
+}
+.blogcont::-webkit-scrollbar{
+  width: 2px;
 }
 @media only screen and (max-width:500px){
 .slotcard{
