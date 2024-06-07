@@ -178,7 +178,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       variants={scalevariant}
       initial="hidden"
       // animate={shrink&&"visible"}
-      className=" bg-slate-100 transition duration-75    max-[550px]:w-[250px] max-[550px]:h-[200px] max-[768px]:w-[300px] max-[768px]:h-[250px]    md:w-[400px] md:h-[300px] flex justify-center items-center absolute z-10 rounded-md p-1 border border-fuchsia-800   "
+      className=" bg-cyan-700 transition duration-75    max-[550px]:w-[250px] max-[550px]:h-[200px] max-[768px]:w-[300px] max-[768px]:h-[250px]    md:w-[400px] md:h-[300px] flex justify-center items-center absolute z-10  p-1 border border-fuchsia-800   "
       id="peekwrap"
 
     >
@@ -245,7 +245,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
   <section  className='sec2 w-screen h-screen flex flex-col justify-center items-center  p-0 m-0 backdrop-blur-md'>
 <div ref={ref} className=" w-full h-full flex justify-center items-center">
 <motion.div   variants={mainvariants} initial="hidden" animate={isInView&&"visible"} className=" overflow-y-scroll blogcont  relative flex  items-center justify-center w-[90%] h-[90%] md:w-[80%] md:h-[80%]  bg-opacity-10 p-2 backdrop-blur-md  ">
-    <h2 className=' marcellus text-3xl font-bold text-rose-100 absolute top-0 left-0 w-max  px-2 py-1 rounded-sm '>Genshin News</h2>
+    <h2 className=' marcellus text-3xl font-bold text-orange-700 absolute top-0 left-0 w-max  px-2 py-1 rounded-sm '>Genshin News</h2>
     <div className="w-full h-[80%] flex justify-center flex-wrap">
     {blogs[0]&&blogs.map((c,i)=>
   <Blog variantname={childvariants} key={i} blogs={c}/>

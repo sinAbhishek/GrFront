@@ -126,7 +126,7 @@ a{
   background-position:bottom;
 }
 #niko{
-  background-image: url("../public/grbg.jpg");
+  background-image: url("../public/grbg8.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -147,7 +147,7 @@ a{
   background-size: contain;
 }
 .sec2{
-  background-image: url("../public/arle2.png");
+  background-image: url("../public/grbg5.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -161,7 +161,7 @@ background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(37, 130, 148, 
 .blogcont{
   row-gap: 5px;
   background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,0) 10%, rgb(196, 37, 5) 80%);
+background: linear-gradient(0deg, rgba(255,255,255,0) 10%, rgb(255, 255, 255) 80%);
 /* background-image: url("../public/pyrobgblog.jpg"); */
 
 background-size: cover;
