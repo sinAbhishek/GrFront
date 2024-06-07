@@ -17,24 +17,24 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     const isInView = useInView(ref,{amount:.2})
     const move1=useTransform(scrollYProgress,[0,1],["100%","-50%"])
     const move2=useTransform(scrollYProgress,[0,1],["100%","-50%"])
-    // const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(typeof window !== "undefined"&&window.innerWidth);
     const [shrink,setshrink]=useState(false)
     const [open,setopen]=useState(false)
-    // useEffect(() => {
-    //   if (typeof window !== "undefined") {
-    //     const handleResize = () => {
-    //       setWidth(window.innerWidth);
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const handleResize = () => {
+          setWidth(window.innerWidth);
         
-    //     };
+        };
     
-    //     window.addEventListener('resize', handleResize);
-    //   }
+        window.addEventListener('resize', handleResize);
+      }
     
   
-    //   return () => {
-    //     typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
-    //   };
-    // }, []);
+      return () => {
+        typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
+      };
+    }, []);
     useEffect(()=>{
      open?peek():hide(null)
     },[open])
