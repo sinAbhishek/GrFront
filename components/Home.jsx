@@ -7,13 +7,15 @@ import { delay, useAnimate, usePresence, stagger,useTransform, useInView  } from
 import { motion } from "framer-motion";
 import { useScroll } from "framer-motion"
 import Blog from './Blog';
+import zIndex from '@mui/material/styles/zIndex';
 const Lobby = ({blogs,setslideshow,openmodal}) => {
     const ref=useRef(null)
     const { scrollY, scrollYProgress } = useScroll()
- 
+    const [scopecont, animatecont] = useAnimate();
     const [scope, animate] = useAnimate();
     const [scopesec, animatesec] = useAnimate();
     const [state, setstate] = useState(false);
+    const [stest,setstest]=useState(false)
     const isInView = useInView(ref,{amount:.2})
     const move1=useTransform(scrollYProgress,[0,1],["100%","-50%"])
     const move2=useTransform(scrollYProgress,[0,1],["100%","-50%"])
@@ -21,11 +23,12 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     const [shrink,setshrink]=useState(false)
     const [open,setopen]=useState(false)
     useEffect(() => {
+      const handleResize = (value) => {
+        setWidth(value);
+      
+      };
       if (typeof window !== "undefined") {
-        const handleResize = () => {
-          setWidth(window.innerWidth);
-        
-        };
+        handleResize(window.innerWidth)
     
         window.addEventListener('resize', handleResize);
       }
@@ -79,35 +82,65 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     useEffect(()=>{
       console.log(isInView)
     },[isInView])
-    const peek=()=>{
+    const peek=async()=>{
       if(width<550){
         setshrink(true)
       }
       setopen(true)
+      if(width<768){
+        setstest(true)
+      }
+   
+     
       leftpeek()
       rightpeek()
     }
     async function leftpeek() {
-     
+      if(width<768){
+        await animate(
+          scope.current,
+          { rotate: -20, x:width>500?-150:-70,opacity:1 },
+          { type: "spring", duration: 0.5, stiffness: 100 }
+        );
+        await animate(
+          scope.current,
+          { rotate: 0, x:width>500?-150:-70,opacity:1 },
+          { type: "spring", duration: 0.5, stiffness: 100 }
+        );
+      }
       // console.log(e);
       await animate(
         scope.current,
         { rotate: -20, x:width>500?-150:-70,opacity:1 },
         { type: "spring", duration: 0.5, stiffness: 100 }
       );
+   
     
     }
     async function rightpeek() {
      
       // console.log(e);
-     
+      if(width<768){
+        await animatesec(
+          scopesec.current,
+          { rotate: 20, x: width>500?150:70,opacity:1 },
+          { type: "spring", duration: 0.5, stiffness: 100 }
+        );
+        await animatesec(
+          scopesec.current,
+          { rotate: 0, x: width>500?150:70,opacity:1,zIndex:20 },
+          { type: "spring", duration: 0.5, stiffness: 100 }
+        );
+      }
       await animatesec(
         scopesec.current,
         { rotate: 20, x: width>500?150:70,opacity:1 },
         { type: "spring", duration: 0.5, stiffness: 100 }
       );
+   
     }
     async function hide(e) {
+      setstest(false)
       setshrink(false)
       setopen(false)
       console.log(e);
@@ -144,11 +177,12 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
   >
     <motion.div
       // onMouseEnter={(e) => peek(e)}
-      style={{scale:move1}}
+      ref={scopecont}
+      style={{scale:!stest?1:0.5}}
       variants={scalevariant}
       initial="hidden"
       // animate={shrink&&"visible"}
-      className=" bg-slate-100    max-[550px]:w-[200px] max-[550px]:h-[200px] max-[768px]:w-[300px] max-[768px]:h-[250px]    md:w-[400px] md:h-[300px] flex justify-center items-center absolute z-10 rounded-md p-1 border border-fuchsia-800   "
+      className=" bg-slate-100 transition duration-75    max-[550px]:w-[250px] max-[550px]:h-[200px] max-[768px]:w-[300px] max-[768px]:h-[250px]    md:w-[400px] md:h-[300px] flex justify-center items-center absolute z-10 rounded-md p-1 border border-fuchsia-800   "
       id="peekwrap"
 
     >
