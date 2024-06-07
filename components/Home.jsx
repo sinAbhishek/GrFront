@@ -21,12 +21,15 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     const [shrink,setshrink]=useState(false)
     const [open,setopen]=useState(false)
     useEffect(() => {
-      const handleResize = () => {
-        setWidth(window.innerWidth);
-      
-      };
-  
-      window.addEventListener('resize', handleResize);
+      if (typeof window !== "undefined") {
+        const handleResize = () => {
+          setWidth(window.innerWidth);
+        
+        };
+    
+        window.addEventListener('resize', handleResize);
+      }
+    
   
       return () => {
         window.removeEventListener('resize', handleResize);
