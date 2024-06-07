@@ -20,21 +20,21 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     const [width, setWidth] = useState(window.innerWidth);
     const [shrink,setshrink]=useState(false)
     const [open,setopen]=useState(false)
-    useEffect(() => {
-      if (typeof window !== "undefined") {
-        const handleResize = () => {
-          setWidth(window.innerWidth);
+    // useEffect(() => {
+    //   if (typeof window !== "undefined") {
+    //     const handleResize = () => {
+    //       setWidth(window.innerWidth);
         
-        };
+    //     };
     
-        window.addEventListener('resize', handleResize);
-      }
+    //     window.addEventListener('resize', handleResize);
+    //   }
     
   
-      return () => {
-        typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
-      };
-    }, []);
+    //   return () => {
+    //     typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
+    //   };
+    // }, []);
     useEffect(()=>{
      open?peek():hide(null)
     },[open])
