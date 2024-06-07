@@ -38,9 +38,9 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
         typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
       };
     }, []);
-    // useEffect(()=>{
-    //  open?peek():hide(null)
-    // },[open])
+    useEffect(()=>{
+     open?peek():hide(null)
+    },[open])
     const scalevariant={
       hidden: { scale:shrink<550?1:.5 },
       visible: {
@@ -83,18 +83,16 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       console.log(isInView)
     },[isInView])
     const peek=async()=>{
-      setopen(true)
-      console.log("width")
-      leftpeek()
-      rightpeek()
       if(width<550){
         setshrink(true)
       }
+      setopen(true)
       if(width<768){
         setstest(true)
       }
    
-    
+      leftpeek()
+      rightpeek()
     }
     async function leftpeek() {
       if(width<768){
@@ -141,42 +139,30 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       setstest(false)
       setshrink(false)
       setopen(false)
-
-      lefthide()
-      righthide()
+      console.log(e);
+      lefthide(e)
+      righthide(e)
   
     }
-    async function lefthide() {
+    async function lefthide(e) {
       // console.log(e.target.id);
-      await animate(scope.current, { rotate: 0, x: 0,opacity:0 });
+      await animate(scope.current, { rotate: 0, x: 0,opacity:0,zIndex:0 });
      
     }
-    async function righthide() {
+    async function righthide(e) {
       // console.log(e.target.id);
    
-      await animatesec(scopesec.current, { rotate: 0, x: 0,opacity:0 });
+      await animatesec(scopesec.current, { rotate: 0, x: 0,opacity:0,zIndex:0 });
     }
     const handle = (e) => {
       console.log(e.target.id);
-      if(width<768){
-        hide(e)
-      }
-      else if (e.target.id === "niko") {
+      if (e.target.id === "niko") {
         hide(e);
       }
     };
     // const slide=()=>{
     //   await animatesec(scopesec.current, { rotate: 0, x: 0,opacity:0 });
     // }
-    const handleswitch=()=>{
-      console.log(open)
-      if(open){
-       hide()
-      }
-      else{
-        peek()
-      }
-    }
   return (
     <>
     <main
@@ -201,7 +187,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
         <img className=' w-[200px] h-[100px]' src="./grlogo.png" alt="" />
         </div> */}
        <div className="  w-full h-[70%] flex justify-center items-center">
-      <motion.button onClick={()=>handleswitch()} whileHover={()=>peek()} className={` ${!open?"bg-cyan-200":"bg-red-400"} text-slate-700 border border-cyan-700 w-max rounded-md px-2 py-1 absolute bottom-3 `}>{!open?"Welcome":"Close"}</motion.button>
+      <motion.button onClick={()=>setopen(!open)} whileHover={()=>peek()} className={` ${!open?"bg-cyan-200":"bg-red-400"} text-slate-700 border border-cyan-700 w-max rounded-md px-2 py-1 absolute bottom-3 `}>{!open?"Welcome":"Close"}</motion.button>
        </div>
     
       </div>
