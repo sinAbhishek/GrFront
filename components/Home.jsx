@@ -85,6 +85,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
     const peek=async()=>{
       if(width<550){
         setshrink(true)
+        setstest(true)
       }
       setopen(true)
       if(width<768){
