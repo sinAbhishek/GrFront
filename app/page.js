@@ -81,11 +81,11 @@ export default function Home() {
     }
     dispatch({ type: "JoinedRoom", payload: null });
   }, []);
-  // useEffect(() => {
-  //   if (name === null) {
-  //     setOpen(true);
-  //   }
-  // }, [name]);
+  useEffect(() => {
+    if (name === null) {
+      setOpen(true);
+    }
+  }, [name]);
 
   useEffect(() => {
     const call = async () => {
