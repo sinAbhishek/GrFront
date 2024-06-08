@@ -269,7 +269,7 @@ export default function Home() {
               <div className=" w-[100px] h-[100px] ">
                 <img className=" bg-cover" src="./qiqialt.png" alt="" />
               </div>
-              <p className=" text-white font-medium">No lobbies</p>
+              <p className=" text-slate-800 font-medium">No lobbies</p>
             </div>
           )}
         </motion.div>
