@@ -37,7 +37,7 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       return () => {
         typeof window !== "undefined"&&window.removeEventListener('resize', handleResize);
       };
-    }, []);
+    }, [width]);
     useEffect(()=>{
      open?peek():hide(null)
     },[open])
@@ -140,9 +140,10 @@ const Lobby = ({blogs,setslideshow,openmodal}) => {
       setstest(false)
       setshrink(false)
       setopen(false)
-      console.log(e);
+    
       lefthide(e)
       righthide(e)
+      // console.log(width);
   
     }
     async function lefthide(e) {
