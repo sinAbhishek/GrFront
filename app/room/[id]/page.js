@@ -18,10 +18,10 @@ const Room = ({ searchParams }) => {
   const pathname = usePathname();
   const router = useRouter();
   const [crews, setcrews] = useState([
-    { socketid: null, name: null, character: "Default" },
-    { socketid: null, name: null, character: "Default" },
-    { socketid: null, name: null, character: "Default" },
-    { socketid: null, name: null, character: "Default" },
+    { socketid: null, name: "Player 1", character: "Default" },
+    { socketid: null, name: "Player 2", character: "Default" },
+    { socketid: null, name: "Player 3", character: "Default" },
+    { socketid: null, name: "Player 4", character: "Default" },
   ]);
 
   useLayoutEffect(() => {
@@ -45,7 +45,11 @@ const Room = ({ searchParams }) => {
             party.push(lobby[i]);
             // setcrews((prev)=>[...prev,lobby[i]])
           } else {
-            party.push({ socketid: null, name: null, character: "Default" });
+            party.push({
+              socketid: null,
+              name: `Player${i}`,
+              character: "Default",
+            });
             // setcrews((prev)=>[...prev,{socketid:null,name:null,character:null}])
           }
         }
@@ -148,13 +152,11 @@ const Room = ({ searchParams }) => {
                     }
                     alt=""
                   />
-                  <p className=" absolute bottom-[30px] text-white">
-                    {c.character}
+                  <p className=" absolute bottom-[25px] text-white">
+                    {c.character !== "Default" && c.character}
                   </p>
                   <div className=" h-[30px] flex justify-center">
-                    {c.character !== "Default" && (
-                      <p className=" w-max h-4 text-white">{c.name}</p>
-                    )}
+                    {<p className=" w-max h-4 text-white">{c.name}</p>}
                   </div>
                 </div>
               ))}
@@ -192,7 +194,7 @@ const Room = ({ searchParams }) => {
             </div>
             <div className=" w-full h-[20px] flex justify-center  overflow-hidden">
               {" "}
-              <p className=" text-white ">{boss}</p>
+              <p className=" text-white ">{boss !== "Default" && boss}</p>
             </div>
 
             <button
