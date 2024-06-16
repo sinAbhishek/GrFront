@@ -159,7 +159,7 @@ background: rgb(255,255,255);
 background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(37, 130, 148, 0.551) 100%);
 }
 .blogcont{
-  row-gap: 5px;
+ margin-bottom: 5px;
   background: rgb(255,255,255);
 background: linear-gradient(0deg, rgba(255,255,255,0) 10%, rgb(255, 255, 255) 80%);
 /* background-image: url("../public/pyrobgblog.jpg"); */
