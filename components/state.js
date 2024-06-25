@@ -71,8 +71,8 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.setItem("name", JSON.stringify(state.name));
   }, [state.name]);
   useEffect(() => {
-    // const ENDPOINT = "https://grbackend.onrender.com";
-    const ENDPOINT = "http://localhost:5000";
+    const ENDPOINT = "https://grbackend.onrender.com";
+    // const ENDPOINT = "http://localhost:5000";
 
     const socket = io(ENDPOINT, {
       reconnection: true,
