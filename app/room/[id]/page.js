@@ -56,7 +56,7 @@ const Room = ({ searchParams }) => {
         setcrews(party);
       });
     Socket &&
-      Socket.emit("send", { room: "6789" }, (error) => {
+      Socket.emit("send", { room: joinedroom }, (error) => {
         if (error) {
           alert(error);
         }
