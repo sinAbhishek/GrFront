@@ -253,8 +253,6 @@ export default function Home() {
   return (
     <>
       <div className="home marcellus w-screen h-screen relative flex justify-between">
-        {/* <Lobby blogs={data} setslideshow={close} openmodal={openLobby} /> */}
-
         <motion.div
           ref={sliderscope}
           variants={slidervariant}
