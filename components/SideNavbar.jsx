@@ -1,12 +1,15 @@
 "use client";
 
 import React from "react";
-// import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { IoGameControllerOutline } from "react-icons/io5";
+import { FaNewspaper } from "react-icons/fa";
 import { MdRedeem } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
 import { FaUserGroup } from "react-icons/fa6";
 import { useAnimate, stagger, motion } from "framer-motion";
 const SideNavbar = () => {
+  const router = useRouter();
   const mainvariants = {
     hidden: { x: "-100vw" },
     slide: {
@@ -42,25 +45,34 @@ const SideNavbar = () => {
         src="./hoyologo.png"
         alt=""
       />
-      <motion.button variants={itemVariants} className=" w-max  text-slate-400">
-        <IoGameControllerOutline size={"2rem"} />
-      </motion.button>
-      <motion.button variants={itemVariants} className=" w-max  text-slate-400">
-        <MdRedeem size={"2rem"} />
+      <motion.button
+        onClick={() => router.push("/")}
+        variants={itemVariants}
+        className=" w-max text-slate-400"
+      >
+        <FaHome size={"2rem"} />
       </motion.button>
       <motion.button
+        onClick={() => router.push("/randomiser")}
+        variants={itemVariants}
+        className=" w-max  text-slate-400"
+      >
+        <IoGameControllerOutline size={"2rem"} />
+      </motion.button>
+      <motion.button
+        onClick={() => router.push("/events")}
+        variants={itemVariants}
+        className=" w-max  text-slate-400"
+      >
+        <FaNewspaper size={"2rem"} />
+      </motion.button>
+      <motion.button
+        onClick={() => router.push("/characters")}
         variants={itemVariants}
         className="  w-max  text-slate-400"
       >
         <FaUserGroup size={"2rem"} />
       </motion.button>
-      {/* <motion.button
-        variants={itemVariants}
-        className=" w-max bg-slate-200 text-black"
-      >
-        {" "}
-        Text
-      </motion.button> */}
     </motion.div>
   );
 };
