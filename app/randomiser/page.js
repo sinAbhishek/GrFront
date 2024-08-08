@@ -305,7 +305,7 @@ export default function Randomiser() {
           )}
         </motion.div>
 
-        <div className=" w-full relative flex justify-center items-center">
+        <div className=" w-full pl-[80px] max-[480px]:pl-0 relative flex justify-center items-center">
           <div className=" min-w-[450px] max-[450px]:min-w-[98%] w-[40%] h-[400px] relative bg-white bg-opacity-15">
             <img
               src="./paimon2.png"

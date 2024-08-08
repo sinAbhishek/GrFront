@@ -56,9 +56,9 @@ const Events = () => {
     call();
   }, []);
   return (
-    <section className="sec2 w-screen h-screen flex flex-col justify-center items-center  p-0 m-0 backdrop-blur-md">
-      <div className=" w-full h-full flex justify-center items-center">
-        <motion.div className=" overflow-y-scroll blogcont  relative flex  items-center justify-center w-[90%] h-[90%] md:w-[80%] md:h-[80%]  bg-opacity-10 p-2 backdrop-blur-md  ">
+    <section className="sec2 w-screen h-screen flex flex-col justify-center max-[480px]:items-center items-end  p-0 m-0 backdrop-blur-md">
+      <div className=" w-[calc(100%-80px)] max-[480px]:w-full   h-full flex justify-center items-center">
+        <motion.div className=" overflow-y-scroll blogcont    relative flex  items-center justify-center w-[90%] h-[80%] md:w-[90%] md:h-[80%]  bg-opacity-10 p-2 backdrop-blur-md  ">
           <h2 className=" marcellus text-3xl font-bold text-orange-700 absolute top-0 left-0 w-max  px-2 py-1 rounded-sm ">
             Genshin News
           </h2>

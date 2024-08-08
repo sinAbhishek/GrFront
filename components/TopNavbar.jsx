@@ -6,7 +6,7 @@ import React from "react";
 const TopNavbar = () => {
   const router = useRouter();
   return (
-    <div className=" fixed bg-transparent flex justify-start gap-8 pl-[90px] h-[80px] items-center z-10">
+    <div className="w-screen max-[480px]:pl-0 max-[480px]:justify-center fixed bg-transparent flex justify-start gap-8 pl-[90px] h-[80px] items-center z-10">
       <h4
         onClick={() => router.push("/characters")}
         className=" noto text-slate-800"

@@ -8,7 +8,7 @@ const Page = () => {
       style={{ backgroundImage: "url(./yaemiko.jpg)" }}
     >
       <div className="absolute top-0 bottom-0 left-0 right-0 boxshadow"></div>
-      <div className="max-[480px]:min-w-[100%] pl-[80px] max-[650px]:min-w-[600px] min-w-[700px] sm:w-full w-[60%] h-full flex flex-col  justify-center items-center ">
+      <div className="max-[480px]:min-w-[100%] max-[480px]:pl-0 pl-[80px] max-[650px]:min-w-[500px] min-w-[700px] sm:w-full w-[60%] h-full flex flex-col  justify-center items-center ">
         <img
           className=" z-20 w-[260px] h-[120px]"
           src="./genshinimpact.png"

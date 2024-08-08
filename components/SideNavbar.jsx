@@ -35,7 +35,7 @@ const SideNavbar = () => {
       variants={mainvariants}
       initial="hidden"
       animate="slide"
-      className=" bg-[#020208]  w-[80px] h-screen absolute flex flex-col justify-center items-center gap-4 left-0 top-0 bottom-0 z-10"
+      className=" max-[480px]:hidden bg-[#020208]  w-[80px] h-screen absolute flex flex-col justify-center items-center gap-4 left-0 top-0 bottom-0 z-10"
     >
       <img
         className=" absolute top-4 w-[50px] h-[50px] "

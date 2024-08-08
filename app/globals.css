@@ -87,6 +87,14 @@ a{
   font-family: var(--font-kanit);
   font-weight: 600;
 }
+.charhead{
+  font-family: var(--font-kanit);
+  font-weight: 600;
+}
+.charsubhead{
+  font-family: var(--font-kanit);
+  font-weight: 400;
+}
 .alicehead{
   font-family: var(--font-alice);
   font-weight: 500;
