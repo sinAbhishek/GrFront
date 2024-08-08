@@ -18,7 +18,6 @@ const Blog = (prop) => {
     >
       <motion.div
         whileHover={{ scale: 1.2 }}
-        variants={prop.variantname}
         className="marcellus slidermain w-[200px] h-[150px] md:w-[250px] md:h-[200px] flex flex-col justify-between  rounded-sm overflow-hidden  hover:cursor-pointer mx-2 my-2 border border-gray-400 "
       >
         {url && (
