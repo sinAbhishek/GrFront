@@ -12,7 +12,7 @@ const SideNavbar = () => {
     slide: {
       x: 0,
       transition: {
-        delay: 0.5,
+        delay: 0.2,
         when: "beforeChildren",
         staggerChildren: 0.5,
         duration: 0.8,
@@ -54,13 +54,13 @@ const SideNavbar = () => {
       >
         <FaUserGroup size={"2rem"} />
       </motion.button>
-      <motion.button
+      {/* <motion.button
         variants={itemVariants}
         className=" w-max bg-slate-200 text-black"
       >
         {" "}
         Text
-      </motion.button>
+      </motion.button> */}
     </motion.div>
   );
 };
