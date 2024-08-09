@@ -465,7 +465,6 @@ export default function Randomiser() {
                 <CloseIcon />
               </button>
 
-              {/* <button className=" absolute top-0 right-0" onClick={()=>closePassModal()}>close</button> */}
               <img
                 src="./paimon2.png"
                 alt=""
