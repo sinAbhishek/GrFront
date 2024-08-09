@@ -1,5 +1,8 @@
+import Image from "next/image";
 import React from "react";
-
+import laylaimg from "../../public/layla.png";
+import weapon from "../../public/keyofkhajnisut.png";
+import artifact from "../../public/Tenacity.png";
 const Characters = () => {
   return (
     <div className="max-[480px]:pl-0 h-screen pl-[80px] pt-[80px] flex bg-blue-100 overflow-scroll  ">
@@ -9,11 +12,19 @@ const Characters = () => {
             style={{ backgroundImage: "url(./cryobg.jpeg)" }}
             className="max-[768px]:h-[150px] w-full h-[200px] absolute bottom-0 right-0 left-0 rounded-lg "
           >
-            <img
-              className="max-[768px]:h-[250px] max-[768px]:w-[200px]  w-[300px] h-[400px] absolute right-0 -top-[10px] "
+            <div className="max-[768px]:h-[250px] max-[768px]:w-[200px]  w-[300px] h-[400px] absolute right-0 -top-[30px] max-[768px]:-top-[10px]">
+              <Image
+                src={laylaimg}
+                priority={true}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+            {/* <img
+              className="max-[768px]:h-[250px] max-[768px]:w-[200px]  w-[300px] h-[400px] absolute right-0 -top-[30px] max-[768px]:-top-[10px] "
               src="./layla.png"
               alt=""
-            />
+            /> */}
             <div className=" flex flex-col justify-center max-[768px]:pl-2 h-full pl-20">
               <h1 className=" max-[768px]:text-2xl charhead w-[60%] text-4xl font-bold text-white">
                 Layla
@@ -32,11 +43,19 @@ const Characters = () => {
                 Signature Weapon
               </h1>
               <div className="w-full h-[200px] bg-[#14405e]  rounded-md flex justify-center items-center ">
-                <img
+                <div className=" w-[150px] h-[150px] relative">
+                  <Image
+                    src={weapon}
+                    priority={true}
+                    fill={true}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                {/* <img
                   className=" w-[150px] h-[150px]"
                   src="./keyofkhajnisut.png"
                   alt=""
-                />
+                /> */}
               </div>
             </div>
             <div className="w-[45%]   rounded-lg flex justify-center items-center relative ">
@@ -44,11 +63,19 @@ const Characters = () => {
                 Best Artifact
               </h1>
               <div className="w-full h-[200px] bg-[#14405e]  rounded-md flex justify-center items-center ">
-                <img
+                <div className=" w-[150px] h-[150px] relative">
+                  <Image
+                    src={artifact}
+                    priority={true}
+                    fill={true}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                {/* <img
                   className=" w-[150px] h-[150px]"
                   src="./Tenacity.png"
                   alt=""
-                />
+                /> */}
               </div>
             </div>
           </div>

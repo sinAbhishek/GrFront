@@ -111,7 +111,7 @@ const Room = ({ searchParams }) => {
   return (
     <>
       <div className="marcellus w-screen h-screen  relative flex justify-between charsMain ">
-        <div className="chars w-[60%] h-[74%] overflow-auto flex flex-wrap relative justify-center border-2 border-red-200 rounded-md p-4  ">
+        {/* <div className="chars w-[60%] h-[74%] overflow-auto flex flex-wrap relative justify-center border-2 border-red-200 rounded-md p-4  ">
           {Characters.map((c, i) => (
             <div
               key={i}
@@ -134,7 +134,7 @@ const Room = ({ searchParams }) => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
         <div className="slots absolute  flex bottom-0  w-[60%] h-[25%] justify-center items-center border-2 border-orange-400 rounded-md">
           <div className=" w-max h-max flex items-center justify-center">
             {crews &&
@@ -207,7 +207,7 @@ const Room = ({ searchParams }) => {
           </div>
         </div>
       </div>
-      <div className="mobile-chars w-[60%] h-[74%] overflow-auto flex flex-wrap relative justify-center border-4 border-red-200 rounded-md p-4  ">
+      {/* <div className="mobile-chars w-[60%] h-[74%] overflow-auto flex flex-wrap relative justify-center border-4 border-red-200 rounded-md p-4  ">
         {Characters.map((c, i) => (
           <div
             key={i}
@@ -231,7 +231,7 @@ const Room = ({ searchParams }) => {
           </div>
         ))}
         <button onClick={() => console.log(Socket.id)}>check id</button>
-      </div>
+      </div> */}
     </>
   );
 };
