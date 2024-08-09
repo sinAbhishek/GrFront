@@ -198,7 +198,13 @@ background-position:center;
 .blogcont::-webkit-scrollbar{
   width: 2px;
 }
+@media only screen and (max-width:480px){
+  .navtop{
+    background-color: rgb(3, 0, 13);
+  }
+}
 @media only screen and (max-width:500px){
+
 .slotcard{
   width: 80px;
   height: 130px;

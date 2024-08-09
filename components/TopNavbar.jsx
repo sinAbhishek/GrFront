@@ -18,9 +18,7 @@ const TopNavbar = () => {
 
   return (
     <div
-      className={`  w-screen max-[480px]:pl-0 max-[480px]:justify-center fixed  flex justify-start gap-8 pl-[90px] h-[80px] items-center z-10 max-[480px]:${
-        pathname === "/" ? "bg-black" : "bg-transparent"
-      }`}
+      className={`navtop  w-screen max-[480px]:pl-0 max-[480px]:justify-center fixed  flex justify-start gap-8 pl-[90px] h-[80px] items-center z-10`}
     >
       <button
         className={`${color} w-max absolute left-1 flex justify-center items-center  mb-1`}
