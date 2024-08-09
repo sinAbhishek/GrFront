@@ -72,7 +72,6 @@ export const AuthContextProvider = ({ children }) => {
   }, [state.name]);
   useEffect(() => {
     const ENDPOINT = "https://grbackend-5e4c.onrender.com";
-    // const ENDPOINT = "http://localhost:5000";
 
     const socket = io(ENDPOINT, {
       reconnection: true,
@@ -80,20 +79,15 @@ export const AuthContextProvider = ({ children }) => {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 99999,
     });
-    // setSocket(socket);
-    // setRoom(room);
-    // setName(name);
+
     socket.on("connect", () => {
-      // INITIAL_STATE.user=socket
-      // console.log(INITIAL_STATE)
-      // console.log(state)
       dispatch({ type: "Connect", payload: socket });
       console.log("connected");
     });
 
     socket.on("roominfo", (data) => {
       console.log(data, "rooms");
-      //   setrooms(data);
+
       dispatch({ type: "setRooms", payload: data });
       data.forEach((c) => {
         console.log(Object.keys(c));
@@ -104,33 +98,12 @@ export const AuthContextProvider = ({ children }) => {
       dispatch({ type: "seterr", payload: true });
     });
     socket.on("route", (data) => {
-      // console.log(err)
       dispatch({ type: "JoinedRoom", payload: data.path });
       router.push(`/room/${data.path}`);
     });
     socket.on("allLobby", (data) => {
       console.log(data);
-      // setrooms(data);
     });
-
-    // socket.on("receive", (data) => {
-    //   console.log(data,"receive")
-    //   const lobby=Object.values(data[0])[0]
-    //   console.log(lobby[0])
-    //   const party=[]
-    // console.log(data)
-    //   for(let i=0;i<4;i++){
-    //     if(lobby[i]){
-    //       party.push(lobby[i])
-    //       // setcrews((prev)=>[...prev,lobby[i]])
-    //     }
-    //     else{
-    //       party.push({socketid:null,name:null,character:"Default"})
-    //       // setcrews((prev)=>[...prev,{socketid:null,name:null,character:null}])
-    //     }
-    //   }
-    //   dispatch({type:"setparty",payload:party})
-    // });
     return () => {
       dispatch({ type: "JoinedRoom", payload: null });
       dispatch({ type: "setname", payload: null });
