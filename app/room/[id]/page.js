@@ -110,38 +110,14 @@ const Room = ({ searchParams }) => {
 
   return (
     <>
-      <div className="marcellus w-screen h-screen  relative flex justify-between charsMain ">
-        {/* <div className="chars w-[60%] h-[74%] overflow-auto flex flex-wrap relative justify-center border-2 border-red-200 rounded-md p-4  ">
-          {Characters.map((c, i) => (
-            <div
-              key={i}
-              className=" w-[80px] flex flex-col justify-center items-center m-2 rounded-md overflow-hidden border border-white"
-            >
-              <div
-                style={{ backgroundColor: `${colors[c.vision]}` }}
-                className={` rounded-br-xl w-full h-[80px]`}
-              >
-                <img
-                  className=" w-full h-full border border-orange-800  "
-                  src={`../characters/${c.character}.png`}
-                  alt=""
-                />
-              </div>
-              <div className=" bg-slate-800 w-full h-4 flex justify-center">
-                <p className=" text-xs text-slate-200 font-semibold">
-                  {c.character}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div> */}
-        <div className="slots absolute  flex bottom-0  w-[60%] h-[25%] justify-center items-center border-2 border-orange-400 rounded-md">
+      <div className="marcellus max-[780px]:pt-[80px] pl-[80px] w-screen h-screen  relative flex justify-between items-center charsMain ">
+        <div className="slots   flex max-w-[550px]  w-[60%] h-[40%] flex-col justify-center items-center border-2 border-orange-400 rounded-md">
           <div className=" w-max h-max flex items-center justify-center">
             {crews &&
               crews.map((c, i) => (
                 <div
                   key={i}
-                  className="slotcard  w-[100px] h-[130px] border border-rose-400 rounded-md mx-2 my-2 overflow-hidden relative "
+                  className="slotcard  w-[100px] h-[130px] border border-rose-800 rounded-md mx-2 my-2 overflow-hidden relative "
                 >
                   <img
                     className=" charImg w-full h-[100px]  border-b border-white "
@@ -162,7 +138,7 @@ const Room = ({ searchParams }) => {
               ))}
           </div>
 
-          <div className=" dice flex justify-center items-center ml-12">
+          <div className=" dice w-full  flex justify-center items-center ml-12">
             <button
               onClick={() => switchchar()}
               className="  text-slate-200 w-[50px] h-[50px]"
