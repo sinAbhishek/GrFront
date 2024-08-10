@@ -1,18 +1,27 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
+import { AuthContext } from "@/components/state";
 
-import yaemikoimg from "../public/yaemiko.jpg";
-import Image from "next/image";
 const Page = () => {
+  const { Socket, dispatch, rooms, joinedroom, err, name } =
+    useContext(AuthContext);
+  useEffect(() => {
+    if (joinedroom !== null) {
+      Socket &&
+        Socket.emit("leaveroom", { data: "meow" }, (err) => {
+          console.log(err);
+        });
+    }
+    dispatch({ type: "JoinedRoom", payload: null });
+  }, []);
   return (
     <>
       <AnimatePresence>
         <div
           onLoad={() => console.log("he")}
-          style={{ backgroundImage: "url(./yaemiko.jpg)" }}
-          className=" w-screen h-screen  bg-cover  bg-center relative "
+          className=" w-screen h-screen  bg-cover  bg-[url('../public/yaemiko.jpg')]  bg-center relative "
         >
           <div className="absolute top-0 bottom-0 left-0 right-0 boxshadow  "></div>
           <div className=" max-[480px]:min-w-[100%] max-[480px]:pl-0 pl-[80px] max-[650px]:min-w-[500px] min-w-[700px]  w-[60%] h-full flex flex-col  justify-center items-center ">
