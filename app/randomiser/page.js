@@ -1,34 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useEffect, useContext, useRef } from "react";
-import io from "socket.io-client";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/state";
 import CloseIcon from "@mui/icons-material/Close";
-import Slider from "react-slick";
-import Blog from "@/components/Blog";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { signOut } from "firebase/auth";
-import {
-  doc,
-  setDoc,
-  updateDoc,
-  collection,
-  getDocs,
-  onSnapshot,
-  query,
-} from "firebase/firestore";
+
+import { collection, onSnapshot, query } from "firebase/firestore";
 import { db } from "../firebase";
-import Typography from "@mui/material/Typography";
+
 import Modal from "@mui/material/Modal";
 import { StyledEngineProvider } from "@mui/material";
-import Lobby from "@/components/Home";
-import { animate, motion, useAnimate, useInView } from "framer-motion";
+
+import { motion, useAnimate, useInView } from "framer-motion";
 // import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure,extendVariants,Input} from "@nextui-org/react";
 export default function Randomiser() {
   const style = {
@@ -74,33 +60,6 @@ export default function Randomiser() {
   const [crews, setcrews] = useState([]);
   const ENDPOINT = "http://localhost:5000";
 
-  const mainvariants = {
-    hidden: { x: "-100vw" },
-    visible: {
-      x: 0,
-      transition: {
-        delay: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.5,
-        duration: 0.8,
-        type: "spring",
-      },
-    },
-  };
-  const childvariants = {
-    hidden: { x: 0, opacity: 0, rotate: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      rotate: 0,
-      transition: { type: "linear", duration: 0.4, stiffness: 400 },
-    },
-    axe: {
-      x: 0,
-      opacity: 1,
-      rotate: 0,
-    },
-  };
   useEffect(() => {
     console.log(isInView);
   }, [isInView]);
@@ -149,28 +108,19 @@ export default function Randomiser() {
       },
     },
   };
-  const openNameModal = () => {
-    setOpen(true);
-  };
+
   const closeNameModal = () => {
     setOpen(false);
   };
-  const openPassModal = () => {
-    setPassOpen(true);
-  };
+
   const closePassModal = () => {
     setPassOpen(false);
   };
-  const openLobby = () => {
-    setopenlobby(true);
-  };
+
   const closeLobby = () => {
     setopenlobby(false);
   };
-  const modalState = (e) => {
-    console.log(e);
-    setOpen(!isOpen);
-  };
+
   const PassModal = (path, room) => {
     setpath(path);
     // console.log(e)
@@ -180,24 +130,7 @@ export default function Randomiser() {
     dispatch({ type: "setname", payload: Name });
     closeNameModal();
   };
-  const sendmsg = () => {
-    Socket.emit("send", { message: "hello" }, (error) => {
-      if (error) {
-        alert(error);
-      }
-    });
-  };
-  const switchchar = () => {
-    Socket.emit(
-      "changecharacter",
-      { room: "12345", name: Character },
-      (error) => {
-        if (error) {
-          alert(error);
-        }
-      }
-    );
-  };
+
   const join = () => {
     setloading(true);
     Socket.emit("joinroom", { name, path, password }, (error) => {
@@ -205,8 +138,6 @@ export default function Randomiser() {
         alert(error);
       }
     });
-    // setloading(false)
-    // dispatch({type:"JoinedRoom",payload:path})
   };
   const call = (room) => {
     console.log(rooms);
@@ -218,25 +149,8 @@ export default function Randomiser() {
           alert(error);
         }
       });
-    // router.push(`./${room}`)
-    // dispatch({type:"JoinedRoom",payload:room})
   };
-  const leave = (room) => {
-    console.log(room);
-    Socket.emit("leave", { room: "6789" }, (error) => {
-      if (error) {
-        alert(error);
-      }
-    });
-  };
-  const getlobbies = (room) => {
-    console.log(room);
-    Socket.emit("lobbies", room, (error) => {
-      if (error) {
-        alert(error);
-      }
-    });
-  };
+
   const setPass = (e) => {
     e.preventDefault();
     console.log(e);
