@@ -9,7 +9,6 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { AuthContextProvider } from "@/components/state";
-import { NextUIProvider } from "@nextui-org/react";
 import SideNavbar from "@/components/SideNavbar";
 import TopNavbar from "@/components/TopNavbar";
 const inter = Inter({ subsets: ["latin"] });
@@ -49,11 +48,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} ${marcellus.variable} ${crimson.variable} ${kanit.variable} ${alice.variable} ${noto.variable}`}
       >
-        <NextUIProvider>
-          <TopNavbar />
-          <SideNavbar />
-          <AuthContextProvider>{children}</AuthContextProvider>
-        </NextUIProvider>
+        <TopNavbar />
+        <SideNavbar />
+        <AuthContextProvider>{children}</AuthContextProvider>
       </body>
     </html>
   );
